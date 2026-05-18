@@ -1,12 +1,15 @@
 # SRE / DevOps Handbook
 
 ## Overview
+![Repo Status](https://img.shields.io/badge/status-active-brightgreen)
+![Focus](https://img.shields.io/badge/focus-SRE%20%7C%20DevOps%20%7C%20Kubernetes-blue)
+![Docs](https://img.shields.io/badge/docs-runbooks%20%7C%20checklists%20%7C%20cheatsheets-lightgrey)
 
 This repository is a practical SRE and DevOps handbook containing production-readiness checklists, troubleshooting runbooks, cheat sheets, architecture diagrams, incident response templates, and official documentation references.
 
 The goal of this repository is to demonstrate hands-on knowledge of Site Reliability Engineering, cloud operations, Kubernetes, CI/CD, observability, incident response, automation, and production support practices.
 
-the repo is inspired by practices from Google SRE Books, Microsoft Azure Well-Architected Framework, Kubernetes Documentation, Prometheus alerting rules, OpenTelemetry documentation, and the CNCF Landscape.
+This repo is inspired by practices from Google SRE Books, Microsoft Azure Well-Architected Framework, Kubernetes Documentation, Prometheus alerting rules, OpenTelemetry documentation, and the CNCF Landscape.
 
 ## Topics Covered
 
@@ -56,6 +59,15 @@ This repository demonstrates:
 - Incident response and postmortem process knowledge
 - Production support mindset
 - Automation-first approach
+
+## Featured Documents
+
+- [SRE Readiness Checklist](checklists/sre-readiness-checklist.md)
+- [Production Deployment Checklist](checklists/production-deployment-checklist.md)
+- [Kubernetes Production Checklist](checklists/kubernetes-production-checklist.md)
+- [Pod CrashLoopBackOff Runbook](runbooks/pod-crashloopbackoff.md)
+- [AKS Platform Architecture](architecture/aks-platform-architecture.md)
+- [SLO, SLI, and Error Budget Guide](docs/slo-sli-error-budget.md)
 
 ## Recommended Reading
 
