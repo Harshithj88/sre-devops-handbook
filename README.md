@@ -33,13 +33,13 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 | Folder | Purpose |
 |---|---|
 | [`checklists/`](checklists/) | Production readiness, deployment, Kubernetes, and incident response checklists |
-| [`cheatsheets/`](cheatsheets/) | Quick command references for kubectl, Git, Azure CLI, Docker, PowerShell, and PromQL |
-| [`runbooks/`](runbooks/) | Step-by-step troubleshooting guides for common production issues |
+| [`cheatsheets/`](cheatsheets/) | Quick command references for kubectl, Git, Azure CLI, Docker, Helm, Terraform, PowerShell, and PromQL |
+| [`runbooks/`](runbooks/) | Step-by-step troubleshooting guides for common production issues (8 runbooks) |
 | [`architecture/`](architecture/) | Architecture diagrams and design documentation (Mermaid) |
-| [`docs/`](docs/) | SRE/DevOps concepts, best practices, and strategy guides |
+| [`docs/`](docs/) | SRE/DevOps concepts, best practices, strategy guides, on-call, and capacity planning |
 | [`resources/`](resources/) | Official documentation links and learning paths |
 | [`templates/`](templates/) | Reusable templates for runbooks, postmortems, and change requests |
-| [`scripts/`](scripts/) | PowerShell automation scripts for operational tasks |
+| [`scripts/`](scripts/) | PowerShell and Bash automation scripts for operational tasks |
 
 ---
 
@@ -49,6 +49,7 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Production Deployment Checklist](checklists/production-deployment-checklist.md) — pre/post deployment validation
 - [Kubernetes Production Checklist](checklists/kubernetes-production-checklist.md) — workload config, security, availability
 - [Incident Response Checklist](checklists/incident-response-checklist.md) — detection through post-incident review
+- [Disaster Recovery Checklist](checklists/disaster-recovery-checklist.md) — backup verification, DR readiness, failover, failback
 
 ## Cheat Sheets
 
@@ -57,6 +58,8 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Azure CLI](cheatsheets/azure-cli-cheatsheet.md) — AKS, ACR, Key Vault, VMs, networking, monitoring
 - [Docker](cheatsheets/docker-cheatsheet.md) — images, containers, compose, networking, cleanup
 - [PowerShell DevOps](cheatsheets/powershell-devops-cheatsheet.md) — IIS, certs, REST APIs, remote management
+- [Helm](cheatsheets/helm-cheatsheet.md) — repos, install, upgrade, rollback, chart development, dependencies
+- [Terraform](cheatsheets/terraform-cheatsheet.md) — init, plan, apply, state, workspaces, modules, debugging
 - [Prometheus / PromQL](cheatsheets/prometheus-promql-cheatsheet.md) — queries, aggregation, alerting rules
 
 ## Runbooks
@@ -67,6 +70,8 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Disk Space Issue](runbooks/disk-space-issue.md) — identify and clean up disk space problems
 - [Certificate Expiry](runbooks/certificate-expiry.md) — detect and renew expiring TLS certificates
 - [Deployment Rollback](runbooks/deployment-rollback.md) — safely roll back problematic deployments
+- [Database Connectivity](runbooks/database-connectivity.md) — diagnose connection failures, pool exhaustion, slow queries
+- [DNS Resolution Failure](runbooks/dns-resolution-failure.md) — troubleshoot DNS issues in Kubernetes and cloud environments
 
 ## Architecture
 
@@ -83,18 +88,28 @@ All diagrams use [Mermaid](https://mermaid.js.org/) for native GitHub rendering 
 - [Incident Management](docs/incident-management.md) — lifecycle, severity levels, roles, communication
 - [Change Management](docs/change-management.md) — change types, risk assessment, approval process
 - [DevOps Best Practices](docs/devops-best-practices.md) — CI/CD, IaC, DORA metrics, DevSecOps
+- [On-Call Engineer Guide](docs/on-call-guide.md) — responsibilities, severity levels, escalation, alert hygiene
+- [Capacity Planning](docs/capacity-planning.md) — USE method, growth modeling, autoscaling, load testing
 
 ## Templates
 
 - [Postmortem Template](templates/postmortem-template.md) — blameless post-incident review format
 - [Runbook Template](templates/runbook-template.md) — standard runbook structure
 - [Change Request Template](templates/change-request-template.md) — change request with risk assessment
+- [On-Call Handoff Template](templates/on-call-handoff-template.md) — shift handoff with active issues, alerts, and risks
 
 ## Scripts
+
+### PowerShell
 
 - [Check-ServiceHealth.ps1](scripts/powershell/Check-ServiceHealth.ps1) — HTTP health check for service endpoints
 - [Check-CertificateExpiry.ps1](scripts/powershell/Check-CertificateExpiry.ps1) — scan local certs for upcoming expiry
 - [Get-DiskSpaceReport.ps1](scripts/powershell/Get-DiskSpaceReport.ps1) — disk usage report with threshold alerts
+
+### Bash
+
+- [cleanup-old-logs.sh](scripts/bash/cleanup-old-logs.sh) — find and remove old log files with dry-run support
+- [check-endpoint-health.sh](scripts/bash/check-endpoint-health.sh) — HTTP health checker with colored output and timing
 
 ## Resources
 
@@ -105,7 +120,7 @@ All diagrams use [Mermaid](https://mermaid.js.org/) for native GitHub rendering 
 
 ## Topics Covered
 
-`SRE` `DevOps` `Kubernetes` `AKS` `CI/CD` `GitHub Actions` `Azure DevOps` `Infrastructure as Code` `Bicep` `Observability` `Prometheus` `Grafana` `OpenTelemetry` `Monitoring` `Alerting` `Incident Response` `Change Management` `PowerShell` `Production Readiness` `Postmortems` `SLOs` `SLIs` `Error Budgets`
+`SRE` `DevOps` `Kubernetes` `AKS` `CI/CD` `GitHub Actions` `Azure DevOps` `Infrastructure as Code` `Bicep` `Terraform` `Helm` `Observability` `Prometheus` `Grafana` `OpenTelemetry` `Monitoring` `Alerting` `Incident Response` `Change Management` `Disaster Recovery` `Capacity Planning` `On-Call` `PowerShell` `Bash` `Production Readiness` `Postmortems` `SLOs` `SLIs` `Error Budgets`
 
 ---
 
