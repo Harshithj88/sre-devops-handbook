@@ -61,6 +61,7 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Helm](cheatsheets/helm-cheatsheet.md) — repos, install, upgrade, rollback, chart development, dependencies
 - [Terraform](cheatsheets/terraform-cheatsheet.md) — init, plan, apply, state, workspaces, modules, debugging
 - [Prometheus / PromQL](cheatsheets/prometheus-promql-cheatsheet.md) — queries, aggregation, alerting rules
+- [Azure DevOps](cheatsheets/azure-devops-cheatsheet.md) — pipelines, variable groups, repos, PRs, work items, YAML syntax
 
 ## Runbooks
 
@@ -72,12 +73,13 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Deployment Rollback](runbooks/deployment-rollback.md) — safely roll back problematic deployments
 - [Database Connectivity](runbooks/database-connectivity.md) — diagnose connection failures, pool exhaustion, slow queries
 - [DNS Resolution Failure](runbooks/dns-resolution-failure.md) — troubleshoot DNS issues in Kubernetes and cloud environments
+- [IIS Application Issues](runbooks/iis-application-issues.md) — app pool crashes, 503 errors, high memory, deployment failures
 
 ## Architecture
 
 - [AKS Platform Architecture](architecture/aks-platform-architecture.md) — reference AKS architecture with networking, security, and observability
 - [CI/CD Architecture](architecture/cicd-architecture.md) — pipeline flow with quality gates and rollback strategy
-- [Observability Architecture](architecture/observability-architecture.md) — metrics, logs, traces, and alerting stack
+- [Observability Architecture](architecture/observability-architecture.md) — three pillars, alert design, tooling decision matrix
 
 All diagrams use [Mermaid](https://mermaid.js.org/) for native GitHub rendering — no external tools needed.
 
