@@ -24,6 +24,7 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Resources](#resources)
 - [Topics Covered](#topics-covered)
 - [Contributing](#contributing)
+- [Security](#security)
 - [License](#license)
 
 ---
@@ -33,8 +34,8 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 | Folder | Purpose |
 |---|---|
 | [`checklists/`](checklists/) | Production readiness, deployment, Kubernetes, and incident response checklists |
-| [`cheatsheets/`](cheatsheets/) | Quick command references for kubectl, Git, Azure CLI, Docker, Helm, Terraform, PowerShell, and PromQL |
-| [`runbooks/`](runbooks/) | Step-by-step troubleshooting guides for common production issues (8 runbooks) |
+| [`cheatsheets/`](cheatsheets/) | Quick command references for kubectl, Git, Azure CLI, Docker, GitHub Actions, Helm, Terraform, PowerShell, and PromQL |
+| [`runbooks/`](runbooks/) | Step-by-step troubleshooting guides for common production issues (9 runbooks) |
 | [`architecture/`](architecture/) | Architecture diagrams and design documentation (Mermaid) |
 | [`docs/`](docs/) | SRE/DevOps concepts, best practices, strategy guides, on-call, and capacity planning |
 | [`resources/`](resources/) | Official documentation links and learning paths |
@@ -61,6 +62,7 @@ A practical, open-source SRE and DevOps handbook containing production-readiness
 - [Helm](cheatsheets/helm-cheatsheet.md) — repos, install, upgrade, rollback, chart development, dependencies
 - [Terraform](cheatsheets/terraform-cheatsheet.md) — init, plan, apply, state, workspaces, modules, debugging
 - [Prometheus / PromQL](cheatsheets/prometheus-promql-cheatsheet.md) — queries, aggregation, alerting rules
+- [GitHub Actions](cheatsheets/github-actions-cheatsheet.md) — workflows, triggers, caching, artifacts, reusable workflows, expressions
 - [Azure DevOps](cheatsheets/azure-devops-cheatsheet.md) — pipelines, variable groups, repos, PRs, work items, YAML syntax
 
 ## Runbooks
@@ -92,6 +94,7 @@ All diagrams use [Mermaid](https://mermaid.js.org/) for native GitHub rendering 
 - [DevOps Best Practices](docs/devops-best-practices.md) — CI/CD, IaC, DORA metrics, DevSecOps
 - [On-Call Engineer Guide](docs/on-call-guide.md) — responsibilities, severity levels, escalation, alert hygiene
 - [Capacity Planning](docs/capacity-planning.md) — USE method, growth modeling, autoscaling, load testing
+- [Toil Reduction](docs/toil-reduction.md) — identifying, measuring, and eliminating operational toil
 
 ## Templates
 
@@ -122,13 +125,17 @@ All diagrams use [Mermaid](https://mermaid.js.org/) for native GitHub rendering 
 
 ## Topics Covered
 
-`SRE` `DevOps` `Kubernetes` `AKS` `CI/CD` `GitHub Actions` `Azure DevOps` `Infrastructure as Code` `Bicep` `Terraform` `Helm` `Observability` `Prometheus` `Grafana` `OpenTelemetry` `Monitoring` `Alerting` `Incident Response` `Change Management` `Disaster Recovery` `Capacity Planning` `On-Call` `PowerShell` `Bash` `Production Readiness` `Postmortems` `SLOs` `SLIs` `Error Budgets`
+`SRE` `DevOps` `Kubernetes` `AKS` `CI/CD` `GitHub Actions` `Azure DevOps` `Infrastructure as Code` `Bicep` `Terraform` `Helm` `Observability` `Prometheus` `Grafana` `OpenTelemetry` `Monitoring` `Alerting` `Incident Response` `Change Management` `Disaster Recovery` `Capacity Planning` `Toil Reduction` `On-Call` `PowerShell` `Bash` `Production Readiness` `Postmortems` `SLOs` `SLIs` `Error Budgets`
 
 ---
 
 ## Contributing
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting guidelines.
 
 ## License
 
