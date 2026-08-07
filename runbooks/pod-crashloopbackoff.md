@@ -1,106 +1,108 @@
- # Runbook: Kubernetes Pod CrashLoopBackOff
+# Runbook: Kubernetes Pod CrashLoopBackOff
 
- ## Purpose
+## Purpose
 
- This runbook helps troubleshoot Kubernetes pods stuck in `CrashLoopBackOff`.
+This runbook helps troubleshoot Kubernetes pods stuck in `CrashLoopBackOff`.
 
- ## Symptoms
+## Symptoms
 
- - Pod repeatedly restarts
- - Application is unavailable
- - Deployment rollout does not complete
- - Logs show application startup failure
+- Pod repeatedly restarts
+- Application is unavailable
+- Deployment rollout does not complete
+- Logs show application startup failure
 
- ## Initial Checks
+## Initial Checks
 
- ```bash
- kubectl get pods -n <namespace>
- kubectl describe pod <pod-name> -n <namespace>
- kubectl logs <pod-name> -n <namespace>
- kubectl logs <pod-name> -n <namespace> --previous
- ```
+```bash
+kubectl get pods -n <namespace>
+kubectl describe pod <pod-name> -n <namespace>
+kubectl logs <pod-name> -n <namespace>
+kubectl logs <pod-name> -n <namespace> --previous
+```
 
- ## Common Causes
+## Common Causes
 
- - Application configuration issue
- - Missing secret or ConfigMap
- - Incorrect environment variable
- - Failed dependency connection
- - Application startup exception
- - Insufficient CPU or memory
- - Bad container image
- - Failing liveness probe
- - OOMKilled due to memory limits
+- Application configuration issue
+- Missing secret or ConfigMap
+- Incorrect environment variable
+- Failed dependency connection
+- Application startup exception
+- Insufficient CPU or memory
+- Bad container image
+- Failing liveness probe
+- OOMKilled due to memory limits
 
- ## Investigation Steps
+## Investigation Steps
 
- 1. Check pod status
-	 ```bash
-	 kubectl get pod <pod-name> -n <namespace> -o wide
-	 ```
+### 1. Check pod status
 
- 2. Review pod events
-	 ```bash
-	 kubectl describe pod <pod-name> -n <namespace>
-	 ```
+```bash
+kubectl get pod <pod-name> -n <namespace> -o wide
+```
 
-	 Look for:
+### 2. Review pod events
 
-	 - Back-off restarting failed container
-	 - ImagePullBackOff
-	 - OOMKilled
-	 - FailedMount
-	 - Unhealthy
-	 - Probe failures
+```bash
+kubectl describe pod <pod-name> -n <namespace>
+```
 
- 3. Check previous container logs
-	 ```bash
-	 kubectl logs <pod-name> -n <namespace> --previous
-	 ```
+Look for:
+- Back-off restarting failed container
+- ImagePullBackOff
+- OOMKilled
+- FailedMount
+- Unhealthy
+- Probe failures
 
- 4. Check deployment configuration
-	 ```bash
-	 kubectl describe deployment <deployment-name> -n <namespace>
-	 ```
+### 3. Check previous container logs
 
-	 Validate:
+```bash
+kubectl logs <pod-name> -n <namespace> --previous
+```
 
-	 - Image tag
-	 - Environment variables
-	 - Secret references
-	 - ConfigMap references
-	 - Resource requests and limits
-	 - Liveness and readiness probes
+### 4. Check deployment configuration
 
- 5. Check resource usage
-	 ```bash
-	 kubectl top pod <pod-name> -n <namespace>
-	 ```
+```bash
+kubectl describe deployment <deployment-name> -n <namespace>
+```
 
- ## Resolution Options
+Validate:
+- Image tag
+- Environment variables
+- Secret references
+- ConfigMap references
+- Resource requests and limits
+- Liveness and readiness probes
 
- Depending on the root cause:
+### 5. Check resource usage
 
- - Fix missing configuration
- - Restore missing secret or ConfigMap
- - Correct environment variables
- - Increase memory or CPU limits
- - Fix application startup error
- - Correct probe configuration
- - Roll back to the previous working deployment
+```bash
+kubectl top pod <pod-name> -n <namespace>
+```
 
- ## Rollback
+## Resolution Options
 
- ```bash
- kubectl rollout history deployment/<deployment-name> -n <namespace>
- kubectl rollout undo deployment/<deployment-name> -n <namespace>
- kubectl rollout status deployment/<deployment-name> -n <namespace>
- ```
+Depending on the root cause:
+- Fix missing configuration
+- Restore missing secret or ConfigMap
+- Correct environment variables
+- Increase memory or CPU limits
+- Fix application startup error
+- Correct probe configuration
+- Roll back to the previous working deployment
 
- ## Post-Incident Follow-Up
+## Rollback
 
- - Add alert for repeated pod restarts
- - Improve startup logging
- - Add deployment smoke test
- - Validate secrets/config before deployment
- - Update this runbook with the confirmed root cause
+```bash
+kubectl rollout history deployment/<deployment-name> -n <namespace>
+kubectl rollout undo deployment/<deployment-name> -n <namespace>
+kubectl rollout status deployment/<deployment-name> -n <namespace>
+```
+
+## Post-Incident Follow-Up
+
+- Add alert for repeated pod restarts
+- Improve startup logging
+- Add deployment smoke test
+- Validate secrets/config before deployment
+- Update this runbook with the confirmed root cause
